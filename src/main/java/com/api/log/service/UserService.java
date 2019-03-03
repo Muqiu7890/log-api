@@ -20,6 +20,13 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public List<User> getAllFollowedUser(Integer id){
+        return userRepository.getAllFollowedUserById(id);
+
+    }
+
+
+
 
 
 }

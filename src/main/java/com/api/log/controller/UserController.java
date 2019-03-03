@@ -18,6 +18,10 @@ public class UserController {
         return new ResponseEntity<>(userService.getAllUser(), HttpStatus.OK);
     }
 
+    @GetMapping("/users/{id}")
+    public ResponseEntity getAllFollowedUser(@PathVariable int id) {
+        return new ResponseEntity<>(userService.getAllFollowedUser(id), HttpStatus.OK);
+    }
 
     @PostMapping("/users")
     public ResponseEntity addUser(@RequestBody User user) {

@@ -15,9 +15,8 @@ public class FollowController {
 
     @GetMapping("/follows")
     public ResponseEntity getAllFollow() {
-        return new ResponseEntity<>(followService.getAllFollow(), HttpStatus.OK);
+        return new ResponseEntity<>(followService.getAllFollow(6), HttpStatus.OK);
     }
-
 
 
     @PostMapping("/follows")

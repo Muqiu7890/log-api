@@ -16,15 +16,12 @@ public class LogService {
     @Autowired
     private LogRepository logRepository;
 
-//    public List<Log> getLog() {
-//        return logRepository.findAll();
-//    }
 
     public List<Log> getPageLog(Integer page,Integer id) {
         Integer size = 5;
         Sort sort = new Sort(Sort.Direction.DESC, "id");
         Pageable pageable = PageRequest.of(page, size, sort);
-        return logRepository.getAllLogByUserId(pageable,id);
+        return logRepository.findAllLogByUserId(pageable,id);
     }
 
     public void addLog(Log log) {
