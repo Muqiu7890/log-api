@@ -13,11 +13,10 @@ public class FollowController {
     @Autowired
     private FollowService followService;
 
-    @GetMapping("/follows")
-    public ResponseEntity getAllFollow() {
-        return new ResponseEntity<>(followService.getAllFollow(6), HttpStatus.OK);
+    @GetMapping("/follows/{userId}")
+    public ResponseEntity getAllFollow(@PathVariable int userId) {
+        return new ResponseEntity<>(followService.getAllFollow(userId), HttpStatus.OK);
     }
-
 
     @PostMapping("/follows")
     public ResponseEntity addFollow(@RequestBody Follow follow) {

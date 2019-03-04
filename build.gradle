@@ -22,6 +22,9 @@ dependencies {
 }
 
 flyway {
+	url = 'jdbc:mysql://localhost:3306/log'
+	user = 'root'
+	password = 'Aptx4869*'
 }
 
 dependencies {

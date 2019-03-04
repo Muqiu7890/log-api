@@ -21,7 +21,7 @@ public class UserService {
     }
 
     public List<User> getAllFollowedUser(Integer id){
-        return userRepository.getAllFollowedUserById(id);
+        return userRepository.findAllFollowedUserById(id);
 
     }
 

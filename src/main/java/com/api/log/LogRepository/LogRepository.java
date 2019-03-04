@@ -12,6 +12,6 @@ public interface LogRepository extends JpaRepository<Log, Integer> {
     List<Log> findAllLogByUserId(Pageable pageable, Integer id);
 
     @Query(value = "select * from log where user_id = ?1",nativeQuery = true)
-    List<Log> getLogByFollowId(Integer id);
+    List<Log> findLogByFollowId(Integer id);
 
 }
