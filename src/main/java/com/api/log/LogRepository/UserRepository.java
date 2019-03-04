@@ -13,5 +13,5 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     List<User> findAllFollowedUserById(Integer id);
 
     @Query(value = "select * from user where id = ?1",nativeQuery = true)
-    List<User> findUserByFollowId(Integer id);
+    User findUserByFollowId(Integer id);
 }
