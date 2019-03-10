@@ -22,7 +22,11 @@ public class FollowService {
     @Autowired
     private LogRepository logRepository;
 
-    public List getAllFollow(Integer id) {
+    public List getAllFollow() {
+        return followRepository.findAll();
+    }
+
+    public List getAllFollowByUserId(Integer id) {
         List allFollow = new ArrayList<>();
         List<Integer> myFollowedIdList = followRepository.findMyFollowedId(id);
         for (int i = 0; i < myFollowedIdList.size(); ++i) {
@@ -36,6 +40,10 @@ public class FollowService {
 
     public void addFollow(Follow follow) {
         followRepository.save(follow);
+    }
+
+    public void deleteFollow(Integer followed_id) {
+        followRepository.deleteByFollowed_id(followed_id);
     }
 
 
