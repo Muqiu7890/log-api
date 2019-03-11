@@ -23,6 +23,11 @@ public class UserController {
         return new ResponseEntity<>(userService.getAllFollowedUser(id), HttpStatus.OK);
     }
 
+    @GetMapping("/users/search")
+    public ResponseEntity findByName(@RequestParam String name) {
+        return new ResponseEntity<>(userService.findByName(name),HttpStatus.OK);
+    }
+
     @PostMapping("/users")
     public ResponseEntity addUser(@RequestBody User user) {
         userService.addUser(user);

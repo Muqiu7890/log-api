@@ -22,11 +22,9 @@ public class UserService {
 
     public List<User> getAllFollowedUser(Integer id){
         return userRepository.findAllFollowedUserById(id);
-
     }
 
-
-
-
-
+    public List<User> findByName(String name) {
+        return userRepository.findByNameLike(name);
+    }
 }
