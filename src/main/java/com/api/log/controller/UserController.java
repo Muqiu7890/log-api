@@ -18,9 +18,14 @@ public class UserController {
         return new ResponseEntity<>(userService.getAllUser(), HttpStatus.OK);
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/users/follow/{id}")
     public ResponseEntity getAllFollowedUser(@PathVariable int id) {
         return new ResponseEntity<>(userService.getAllFollowedUser(id), HttpStatus.OK);
+    }
+
+    @GetMapping("/users/{id}")
+    public ResponseEntity getUserById(@PathVariable int id) {
+        return new ResponseEntity<>(userService.getUserById(id), HttpStatus.OK);
     }
 
     @GetMapping("/users/search")

@@ -13,11 +13,6 @@ public class LogController {
     @Autowired
     private LogService logService;
 
-//    @GetMapping("/logs")
-//    public ResponseEntity getAllLog() {
-//        return new ResponseEntity<>(logService.getAllLog(), HttpStatus.OK);
-//    }
-
     @GetMapping("/logs/{id}")
     public ResponseEntity getPageLog(@PathVariable int id,@RequestParam Integer page) {
         return new ResponseEntity<>(logService.getPageLog(page,id),HttpStatus.OK);

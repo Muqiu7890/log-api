@@ -17,7 +17,7 @@ public class LogService {
     private LogRepository logRepository;
 
 
-    public List<Log> getPageLog(Integer page,Integer id) {
+    public Page<Log> getPageLog(Integer page,Integer id) {
         Integer size = 5;
         Sort sort = new Sort(Sort.Direction.DESC, "id");
         Pageable pageable = PageRequest.of(page, size, sort);
