@@ -2,11 +2,7 @@ package com.api.log.service;
 
 import com.api.log.entity.Log;
 import com.api.log.query.ExclogsPageQuery;
-import com.api.log.query.ExclogsQuery;
 import com.api.log.query.LogListQuery;
-import org.springframework.data.domain.Page;
-
-import java.util.List;
 
 public interface LogService {
     ExclogsPageQuery getAllExcellentLog(Integer page, Integer id);

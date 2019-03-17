@@ -2,7 +2,6 @@ package com.api.log.controller;
 
 import com.api.log.entity.Log;
 import com.api.log.query.ExclogsPageQuery;
-import com.api.log.query.ExclogsQuery;
 import com.api.log.query.LogListQuery;
 import com.api.log.service.LogService;
 import org.slf4j.Logger;
@@ -24,20 +23,20 @@ public class LogController {
 
 
     @GetMapping("/exclogs")
-    public ResponseEntity<ExclogsPageQuery> getAllExcellentLog(int id,int page) {
+    public ResponseEntity<ExclogsPageQuery> getAllExcellentLog(int id, int page) {
 //        logger.info("Entering getAllExcellentLog.");
 //        List<ExclogsQuery> res = null;
 //        try {
-//            res = logService.getAllExcellentLog(1);
+//            res = logService.getAllExcellentLog();
 //        } catch (Exception e) {
 //            logger.error("Leave getAllExcellentLog", e);
 //        }
 //        logger.info("Leave getAllExcellentLog response={}", res);
-        return new ResponseEntity<>(logService.getAllExcellentLog(page,id), HttpStatus.OK);
+        return new ResponseEntity<>(logService.getAllExcellentLog(page, id), HttpStatus.OK);
     }
 
     @GetMapping("/logs")
-    public ResponseEntity<LogListQuery> getPageLog( int id, int page) {
+    public ResponseEntity<LogListQuery> getPageLog(int id, int page) {
         return new ResponseEntity(logService.getPageLog(page, id), HttpStatus.OK);
     }
 

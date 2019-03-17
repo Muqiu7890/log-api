@@ -1,6 +1,5 @@
 package com.api.log.service;
 
-
 import com.api.log.LogRepository.FollowRepository;
 import com.api.log.LogRepository.LogRepository;
 import com.api.log.LogRepository.UserRepository;
@@ -31,7 +30,7 @@ public class FollowService {
         List allFollow = new ArrayList<>();
         List<Integer> myFollowedIdList = followRepository.findMyFollowedId(id);
         for (Integer i = 0, size = myFollowedIdList.size(); i < size; i++) {
-            Map<String,Object> map = new HashMap();
+            Map<String, Object> map = new HashMap();
             User user = userRepository.findUserByFollowId(myFollowedIdList.get(i));
             map.put("logs", logRepository.findLogByFollowId(myFollowedIdList.get(i)));
             map.put("user", user);
