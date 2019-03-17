@@ -5,6 +5,7 @@ import com.api.log.LogRepository.FollowRepository;
 import com.api.log.LogRepository.LogRepository;
 import com.api.log.LogRepository.UserRepository;
 import com.api.log.entity.Follow;
+import com.api.log.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,10 +30,11 @@ public class FollowService {
     public List getAllFollowByUserId(Integer id) {
         List allFollow = new ArrayList<>();
         List<Integer> myFollowedIdList = followRepository.findMyFollowedId(id);
-        for (int i = 0; i < myFollowedIdList.size(); ++i) {
+        for (Integer i = 0, size = myFollowedIdList.size(); i < size; i++) {
             Map<String,Object> map = new HashMap();
+            User user = userRepository.findUserByFollowId(myFollowedIdList.get(i));
             map.put("logs", logRepository.findLogByFollowId(myFollowedIdList.get(i)));
-            map.put("user", userRepository.findUserByFollowId(myFollowedIdList.get(i)));
+            map.put("user", user);
             allFollow.add(map);
         }
         return allFollow;

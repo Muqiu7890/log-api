@@ -15,6 +15,7 @@ public class Log {
     private Date create_time;
     private String content;
     private int user_id;
+    private int exc;
 
     public int getId() {
         return id;
@@ -55,5 +56,13 @@ public class Log {
 
     public void setUser_id(int user_id) {
         this.user_id = user_id;
+    }
+
+    public int getExc() {
+        return exc;
+    }
+
+    public void setExc(int exc) {
+        this.exc = exc;
     }
 }

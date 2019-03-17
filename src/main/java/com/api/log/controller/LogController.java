@@ -1,23 +1,45 @@
 package com.api.log.controller;
 
 import com.api.log.entity.Log;
+import com.api.log.query.ExclogsPageQuery;
+import com.api.log.query.ExclogsQuery;
+import com.api.log.query.LogListQuery;
 import com.api.log.service.LogService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class LogController {
-    @Autowired
+    @Resource
     private LogService logService;
 
-    @GetMapping("/logs/{id}")
-    public ResponseEntity getPageLog(@PathVariable int id,@RequestParam Integer page) {
-        return new ResponseEntity<>(logService.getPageLog(page,id),HttpStatus.OK);
+    private Logger logger = LoggerFactory.getLogger(LogController.class);
+
+
+    @GetMapping("/exclogs")
+    public ResponseEntity<ExclogsPageQuery> getAllExcellentLog(int id,int page) {
+//        logger.info("Entering getAllExcellentLog.");
+//        List<ExclogsQuery> res = null;
+//        try {
+//            res = logService.getAllExcellentLog(1);
+//        } catch (Exception e) {
+//            logger.error("Leave getAllExcellentLog", e);
+//        }
+//        logger.info("Leave getAllExcellentLog response={}", res);
+        return new ResponseEntity<>(logService.getAllExcellentLog(page,id), HttpStatus.OK);
     }
 
+    @GetMapping("/logs")
+    public ResponseEntity<LogListQuery> getPageLog( int id, int page) {
+        return new ResponseEntity(logService.getPageLog(page, id), HttpStatus.OK);
+    }
 
     @PostMapping("/logs")
     public ResponseEntity addLog(@RequestBody Log log) {

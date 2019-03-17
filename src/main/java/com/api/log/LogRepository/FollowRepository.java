@@ -18,4 +18,5 @@ public interface FollowRepository extends JpaRepository<Follow, Integer> {
     @Transactional
     void deleteByFollowed_id(Integer id);
 
+
 }

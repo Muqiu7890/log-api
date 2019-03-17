@@ -12,10 +12,10 @@ import java.util.List;
 @Component
 public interface UserRepository extends JpaRepository<User, Integer>, JpaSpecificationExecutor<User> {
 
-    @Query(value="select * from user where id in(select followed_id from follow where user_id = ?1)",nativeQuery=true)
+    @Query(value = "select * from user where id in(select followed_id from follow where user_id = ?1)", nativeQuery = true)
     List<User> findAllFollowedUserById(Integer id);
 
-    @Query(value = "select * from user where id = ?1",nativeQuery = true)
+    @Query(value = "select * from user where id = ?1", nativeQuery = true)
     User findUserByFollowId(Integer id);
 
     List<User> findByNameLike(String name);
