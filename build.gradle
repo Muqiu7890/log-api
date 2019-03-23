@@ -21,6 +21,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
+
 flyway {
 	url = 'jdbc:mysql://localhost:3306/log'
 	user = 'root'
